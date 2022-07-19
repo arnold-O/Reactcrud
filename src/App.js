@@ -1,11 +1,15 @@
 
+import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import './App.css';
 import Alert from './component/Alert';
 import List from './component/List';
 
 function App() {
+  const [list, setList] = useState([])
   const [name, setName] = useState('')
+  const [edit, isEditting] = useState(false)
+  const [editId, setEditId] = useState(null)
   const [alert, setAlert] = useState({show:false, msg:"", type:""})
 
 
@@ -16,10 +20,21 @@ function App() {
     e.preventDefault()
 
     if(!name){
-      setAlertOn(true, 'please enter values', 'banger')
+      // setAlertOn(true, 'please enter values', 'banger')
      
+    }
+    // else if(name && isEditting){
 
+    // }
+    else{
 
+      const newItem = {id:nanoid(), title:name}
+      console.log('hello')
+      
+      setList([...list, newItem])
+
+      // setAlertOn(true, 'Item added successfully', 'rainbow')
+      setName('')
     }
   }  
 
@@ -40,11 +55,13 @@ function App() {
           <input type="text" value={name} onChange={(e)=>setName(e.target.value)} className='input-text' placeholder='name....' />
      
       
-          <button type="submit"> Submit</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
 
-    <List/>
+    <div>
+    <List list={list}/>
+    </div>
     </div>
   );
 }

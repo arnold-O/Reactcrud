@@ -34,6 +34,7 @@ button{
   outline: none;
   border: 1px solid greenyellow;
   border-radius: 2px;
+  cursor: pointer;
 }
 
 form{
