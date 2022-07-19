@@ -38,5 +38,31 @@ button{
 
 form{
   margin-top: 1.2em;
-  margin-bottom: 1.8em;
+  margin-bottom: 3em;
+}
+
+.listContan{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.edit-delet-cont{
+  margin-right: 1.2em;
+}
+
+.all-banger{
+  background-color: rgb(238, 102, 102);
+  color:#fff;
+  width:80%;
+  margin: 0 auto;
+  margin-top: 1.5em;
+}
+
+.all-rainbow{
+  background-color: rgb(142, 223, 142);
+  color:#fff;
+  width:80%;
+  margin: 0 auto;
+  margin-top: 1.5em;
 }
