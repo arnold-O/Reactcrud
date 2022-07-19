@@ -11,6 +11,7 @@
   margin-top: 5em;
   box-shadow: 0px 0px 4px grey;
   text-align: center;
+  padding-bottom: 1.2em;
  
 
 }
@@ -39,17 +40,26 @@ button{
 
 form{
   margin-top: 1.2em;
-  margin-bottom: 3em;
+  margin-bottom:2em
 }
 
 .listContan{
   display: flex;
+  width: 90%;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+
 }
 
 .edit-delet-cont{
   margin-right: 1.2em;
+  color: green;
+  cursor: pointer;
+}
+.edit-delet-conttwo{
+
+  color: rgb(226, 39, 14);
+  cursor: pointer;
 }
 
 .all-banger{
@@ -67,3 +77,4 @@ form{
   margin: 0 auto;
   margin-top: 1.5em;
 }
+

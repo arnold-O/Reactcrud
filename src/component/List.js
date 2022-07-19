@@ -2,7 +2,7 @@ import React from "react";
 import { BsTrash } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
 
-export default function List({ list }) {
+export default function List({ list,removeItem }) {
   return (
     <div>
       <div >
@@ -11,10 +11,10 @@ export default function List({ list }) {
 
           return (<div key={id} className="listContan">
             
-              <div>{title}</div>
-              <div>
+              <div style={{width:"120px"}}>{title}</div>
+              <div style={{width:"70px"}}>
                 <FaRegEdit className="edit-delet-cont" />
-                <BsTrash />
+                <BsTrash onClick={()=>removeItem(id)} className="edit-delet-conttwo"/>
               </div>
             </div>
           );

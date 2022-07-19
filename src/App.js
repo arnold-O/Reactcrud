@@ -20,7 +20,7 @@ function App() {
     e.preventDefault()
 
     if(!name){
-      // setAlertOn(true, 'please enter values', 'banger')
+      setAlertOn(true, 'please enter values', 'banger')
      
     }
     // else if(name && isEditting){
@@ -33,7 +33,7 @@ function App() {
       
       setList([...list, newItem])
 
-      // setAlertOn(true, 'Item added successfully', 'rainbow')
+      setAlertOn(true, 'Item added successfully', 'rainbow')
       setName('')
     }
   }  
@@ -43,7 +43,12 @@ function App() {
       setAlert({show, msg, type})
 
     }
+const removeItem = (id)=>{
 
+  setList(list.filter((item)=> item.id !== id))
+  setAlertOn(true, 'Item removed successfully', 'banger')
+
+}
   return (
     <div className='main-text'>
       <h1>Simple Crud App</h1>
@@ -59,9 +64,10 @@ function App() {
         </div>
       </form>
 
-    <div>
-    <List list={list}/>
-    </div>
+
+    <List list={list} removeItem={removeItem} />
+  
+
     </div>
   );
 }
