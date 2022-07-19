@@ -29,7 +29,11 @@ function App() {
           return {...item, title:name}
 
         }
+        return item
       }))
+      setName('')
+      setIsEditting(false)
+      setEditId(null)
 
     }
     else{
@@ -73,7 +77,7 @@ const editItem = (id)=>{
           <input type="text" value={name} onChange={(e)=>setName(e.target.value)} className='input-text' placeholder='name....' />
      
       
-          <button type="submit">Submit</button>
+          <button type="submit">{edit ? "edit":"Submit"}</button>
         </div>
       </form>
 
