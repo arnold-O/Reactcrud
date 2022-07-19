@@ -28,6 +28,7 @@ export default function List({ list,removeItem, setAlertOn, editItem}) {
           );
         })}
       </div>
+     
     </div>
   );
 }

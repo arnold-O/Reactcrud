@@ -1,12 +1,21 @@
 
 import { nanoid } from 'nanoid';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Alert from './component/Alert';
 import List from './component/List';
 
+const getLocalStorage = ()=>{
+  let list = localStorage.getItem('list')
+  if(list){
+    return JSON.parse(localStorage.getItem('list'))
+  }else{
+    return []
+  }
+}
+
 function App() {
-  const [list, setList] = useState([])
+  const [list, setList] = useState(getLocalStorage())
   const [name, setName] = useState('')
   const [edit, setIsEditting] = useState(false)
   const [editId, setEditId] = useState(null)
@@ -66,6 +75,12 @@ const editItem = (id)=>{
   setEditId(id)
   setName(uniqueItem.title)
 }
+
+    useEffect(()=>{
+      localStorage.setItem('list', JSON.stringify(list))
+    },[list])
+
+
   return (
     <div className='main-text'>
       <h1>Simple Crud App</h1>
@@ -84,8 +99,8 @@ const editItem = (id)=>{
 
     <List list={list} removeItem={removeItem}  setAlertOn={setAlertOn} editItem={editItem}/>
   
-        <div>
-          <button onClick={()=>setList([])}>Clear All</button>
+        <div style={{marginTop:"2em"}}>
+          <button className='clearAll-btn' onClick={()=>setList([])}>Clear All</button>
         </div>
     </div>
   );

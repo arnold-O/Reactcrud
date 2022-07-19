@@ -78,3 +78,8 @@ form{
   margin-top: 1.5em;
 }
 
+
+.clearAll-btn{
+  border: 1px solid red;
+  background-color: rgb(240, 156, 156);
+}
