@@ -65,7 +65,7 @@ const removeItem = (id)=>{
       </form>
 
 
-    <List list={list} removeItem={removeItem} />
+    <List list={list} removeItem={removeItem}  setAlertOn={setAlertOn}/>
   
 
     </div>

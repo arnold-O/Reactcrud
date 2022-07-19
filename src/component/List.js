@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsTrash } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
 
-export default function List({ list,removeItem }) {
+export default function List({ list,removeItem, setAlertOn}) {
+
+  useEffect(()=>{
+    const timeOUTFunction = setTimeout(()=>{
+      setAlertOn()
+
+    }, 3000)
+    return ()=> clearTimeout(timeOUTFunction)
+  })
   return (
     <div>
       <div >
