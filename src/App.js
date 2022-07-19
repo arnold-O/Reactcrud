@@ -8,7 +8,7 @@ import List from './component/List';
 function App() {
   const [list, setList] = useState([])
   const [name, setName] = useState('')
-  const [edit, isEditting] = useState(false)
+  const [edit, setIsEditting] = useState(false)
   const [editId, setEditId] = useState(null)
   const [alert, setAlert] = useState({show:false, msg:"", type:""})
 
@@ -23,9 +23,15 @@ function App() {
       setAlertOn(true, 'please enter values', 'banger')
      
     }
-    // else if(name && isEditting){
+    else if(name && edit){
+      setList(list.map((item)=>{
+        if(item.id === editId){
+          return {...item, title:name}
 
-    // }
+        }
+      }))
+
+    }
     else{
 
       const newItem = {id:nanoid(), title:name}
@@ -49,6 +55,13 @@ const removeItem = (id)=>{
   setAlertOn(true, 'Item removed successfully', 'banger')
 
 }
+const editItem = (id)=>{
+  const uniqueItem = list.find((item)=>item.id ===id)
+
+  setIsEditting(true)
+  setEditId(id)
+  setName(uniqueItem.title)
+}
   return (
     <div className='main-text'>
       <h1>Simple Crud App</h1>
@@ -65,9 +78,11 @@ const removeItem = (id)=>{
       </form>
 
 
-    <List list={list} removeItem={removeItem}  setAlertOn={setAlertOn}/>
+    <List list={list} removeItem={removeItem}  setAlertOn={setAlertOn} editItem={editItem}/>
   
-
+        <div>
+          <button onClick={()=>setList([])}>Clear All</button>
+        </div>
     </div>
   );
 }

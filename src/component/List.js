@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { BsTrash } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
 
-export default function List({ list,removeItem, setAlertOn}) {
+export default function List({ list,removeItem, setAlertOn, editItem}) {
 
   useEffect(()=>{
     const timeOUTFunction = setTimeout(()=>{
@@ -21,7 +21,7 @@ export default function List({ list,removeItem, setAlertOn}) {
             
               <div style={{width:"120px"}}>{title}</div>
               <div style={{width:"70px"}}>
-                <FaRegEdit className="edit-delet-cont" />
+                <FaRegEdit onClick={()=>editItem(id)} className="edit-delet-cont" />
                 <BsTrash onClick={()=>removeItem(id)} className="edit-delet-conttwo"/>
               </div>
             </div>
